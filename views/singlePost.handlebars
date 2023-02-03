@@ -1,0 +1,20 @@
+<div class="card border-info">
+    <h2>{{post.title}}</h2>
+    <p>{{post.body}}</p>
+    <p>Posted by: {{post.user.name}}</p>
+
+    {{#each post.comments}}
+    <p>{{body}}</p>
+    {{/each}}
+
+    <form class="frm_comment" data-id="{{id}}">
+        <div class="from-group">
+            <label class="from-label" for="txt_comment">Leave a comment</label>
+            <textarea type="text" class="from-control" id="txt_comment"></textarea>
+            <button type="submit" class="btn">Submit</button>
+        </div>
+    </form>
+
+</div>
+
+<script src="../js/singlePost.js"></script>
