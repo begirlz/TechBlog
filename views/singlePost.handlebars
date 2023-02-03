@@ -1,20 +1,25 @@
-<div class="card border-info">
-    <h2>{{post.title}}</h2>
-    <p>{{post.body}}</p>
-    <p>Posted by: {{post.user.name}}</p>
+<div class="">
+    <div class="card border-info mb-3">
+        <h2>{{post.title}}</h2>
+        <p>{{post.body}}</p>
+        <p>Posted by: {{post.user.name}}</p>
+    </div>
 
-    {{#each post.comments}}
-    <p>{{body}}</p>
-    {{/each}}
+    <div class="card border-info mb-3">
+        {{#each post.comments}}
+        <p>{{body}}</p>
+        {{/each}}
+    </div>
 
-    <form class="frm_comment" data-id="{{id}}">
-        <div class="from-group">
-            <label class="from-label" for="txt_comment">Leave a comment</label>
-            <textarea type="text" class="from-control" id="txt_comment"></textarea>
-            <button type="submit" class="btn">Submit</button>
-        </div>
-    </form>
-
+    <div class="card border-info mb-3">
+        <form class="frm_comment" data-id="{{id}}">
+            <div class="from-group">
+                <label class="from-label" for="txt_comment">Leave a comment</label>
+                <textarea type="text" class="form-control" id="txt_comment"></textarea>
+                <button type="submit" class="btn float-end">Submit</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 <script src="../js/singlePost.js"></script>
