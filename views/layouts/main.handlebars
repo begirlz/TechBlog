@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,20 +7,19 @@
     <link href="
 https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/cerulean/bootstrap.min.css
 " rel="stylesheet">
-<link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
     </link>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar  navbar-expand-lg navbar-dark bg-dark mb-2">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
                 aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse" id="navbarColor02">
-
                 <div class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link active" href="/"><strong>Home</strong>
@@ -30,15 +30,15 @@ https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/cerulean/bootstrap.min.css
                         <a class="nav-link" href="/dashboard"><strong>Dashboard</strong></a>
                     </li>
                 </div>
-                {{!-- {{#if loggedIn}} --}}
+                {{#if loggedIn}}
                 <div class="d-flex me-sm-2">
                     <div class="btn btn-secondary my-2 my-sm-0">
-                        <a href="#" id="logout">
+                        <a href="/" id="logout">
                             <strong>LogOut</strong>
                         </a>
                     </div>
                 </div>
-                {{!-- {{else}} --}}
+                {{else}}
                 <div class="d-flex me-sm-2">
                     <div class="btn btn-secondary my-2 my-sm-0">
                         <a href="/login" id="login">
@@ -53,18 +53,18 @@ https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/cerulean/bootstrap.min.css
                         </a>
                     </div>
                 </div>
-                {{!-- {{/if}} --}}
+                {{/if}}
             </div>
         </div>
     </nav>
-    <main>
+    <main class="container-fluid">
         {{{ body }}}
     </main>
 
-
+    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/logout.js"></script>
 </body>
 
-<script type="text/javascript" src="/js/script.js"></script>
-<script src="/js/logout.js"></script>
+
 
 </html>

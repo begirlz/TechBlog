@@ -1,5 +1,6 @@
-<div class="">
+<div class="d-flex justify-content-center">
     <div class="card border-info mb-3">
+        <p>{{post.id}}</p>
         <h2>{{post.title}}</h2>
         <p>{{post.body}}</p>
         <p>Posted by: {{post.user.name}}</p>
@@ -12,7 +13,7 @@
     </div>
 
     <div class="card border-info mb-3">
-        <form class="frm_comment" data-id="{{id}}">
+        <form class="frm_comment" data-id="{{post.id}}">
             <div class="from-group">
                 <label class="from-label" for="txt_comment">Leave a comment</label>
                 <textarea type="text" class="form-control" id="txt_comment"></textarea>
@@ -22,4 +23,4 @@
     </div>
 </div>
 
-<script src="../js/singlePost.js"></script>
+<script src="/js/singlePost.js"></script>

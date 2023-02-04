@@ -1,15 +1,24 @@
-<div >
-    {{#each posts as |post|}}
-    <div class="card border-info mb-3">
-        <h2 class="btn-primary">
-            <a href="/posts/{{id}}">{{title}}</a>
-        </h2>
-        <div>
-            Posted by {{post.user.name}} on {{format_date createdAt}}
+<div class="d-flex justify-content-center">
+    <div class="col-lg-10">
+        {{#each posts as |post|}}
+        <div class="card bg-light mb-3">
+            <h2 class="btn-primary">
+                <a href="/posts/{{id}}">{{title}}</a>
+            </h2>
+            <div>
+                Posted by {{post.user.name}} on {{format_date createdAt}}
+            </div>
+            <div>
+                {{body}}
+            </div>
         </div>
-        <div>
-            {{body}}
+        {{/each}}
+        
+        {{#if loggedIn}}
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-info col-lg-3" href="/addPost" id="addPost">Add new post</a>
         </div>
+        {{/if}}
+
     </div>
-    {{/each}}
 </div>

@@ -1,6 +1,17 @@
 const router = require("express").Router();
 const { Post, Comment, User } = require("../models");
 
+// render addPost page
+router.get('/addPost', (req, res) => {
+
+  if (req.session.loggedIn) {
+      res.redirect('/homepage');
+      return;
+  }
+
+  res.render('addPost');
+});
+
 // get login session for login page 
 router.get('/login', (req, res) => {
 

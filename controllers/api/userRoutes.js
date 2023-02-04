@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const bcrypt = require('bcrypt');
 
 // create new user
 router.post('/', async (req, res) => {
@@ -29,25 +30,33 @@ router.post('/login', async (req, res) => {
     if (!data) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect email, please try again' });
       return;
     }
 
-    const validPassword = await data.checkPassword(req.body.password);
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      data.password
+    );
 
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect password, please try again' });
       return;
     }
 
     req.session.save(() => {
       req.session.user_id = data.id;
-      req.session.logged_in = true;
-      
-      res.json({ user: data, message: 'You are now logged in!' });
+      req.session.loggedIn = true;
+
+    res.json({ user: data, message: 'You are now logged in!' });
+
     });
+
+    //insomnia: testing result
+    // res.json({ pwd:req.body.password,
+    //   userpwd:data.password,validation:validPassword, message: 'You are now logged in!' });
 
   } catch (err) {
     res.status(400).json(err);
@@ -56,14 +65,14 @@ router.post('/login', async (req, res) => {
 
 // logout
 router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
-    } else {
-      res.status(404).end();
-    }
-  });
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 
 

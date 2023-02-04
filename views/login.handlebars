@@ -1,35 +1,20 @@
-<div class="card border-info col-lg-3 row">
-  <h2>Log In</h2>
-  <form class="frm_login">
-    <div class="form-group">
-      <label class="form-label" for="txt_emailLogin">Email</label>
+<div class="d-flex justify-content-center">
+
+  <form class="col-lg-6" id="from_login">
+    <div class="form-group row mb-2">
+      <label class="form-label" for="txt_emailLogin">Email:</label>
       <input class="form-control" type="text" id="txt_emailLogin" />
     </div>
-    <div class="form-group">
-      <label class="form-label" for="txt_passwordLogin">Password</label>
+    <div class="form-group row mb-2">
+      <label class="form-label" for="txt_passwordLogin">Password:</label>
       <input class="form-control" type="password" id="txt_passwordLogin" />
-    </div class="form-group row">
-    <button class="btn btn-info float-end" type="submit" id="btn_login">Login</button>
-    {{!-- <a href="/signup">SignUp</button> --}}
+    </div >
+    <div class="form-group row mb-2">
+      <button class="btn btn-info float-end" type="submit" id="btn_login"><strong>Login</strong></button>
+    </div>
+    
+
   </form>
 </div>
 
-{{!-- <form class="frm_signup">
-  <div>
-    <label>Username</label>
-    <input type="text" id="txt_usernameSignup" />
-  </div>
-  <div>
-    <label>Email</label>
-    <input type="text" id="txt_emailSignup" />
-  </div>
-  <div>
-    <label>Password</label>
-    <input type="password" id="txt_passwordSignup" />
-  </div>
-  <button type="submit" id="btn_signup">Signup</button>
-</form>
-</div> --}}
-
 <script src="/js/login.js"></script>
-{{!-- <script src="/js/signup.js"></script> --}}
