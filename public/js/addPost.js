@@ -2,7 +2,7 @@ const addPostHandler = async function (event) {
     event.preventDefault();
 
     const title = document.querySelector('#txt_title').value;
-    const url = document.querySelector('#txt_body').value;
+    const body = document.querySelector('#txt_body').value;
 
     if (body) {
         fetch('/api/posts', {
@@ -25,4 +25,4 @@ const addPostHandler = async function (event) {
 
 document
     .querySelector('#btn_addPost')
-    .addEventListener('submit', addPostHandler);
+    .addEventListener('click', addPostHandler);

@@ -5,11 +5,11 @@ const { Post, Comment, User } = require("../models");
 router.get('/addPost', (req, res) => {
 
   if (req.session.loggedIn) {
-      res.redirect('/homepage');
+      res.render('addPost');
       return;
   }
 
-  res.render('addPost');
+  res.redirect('/');
 });
 
 // get login session for login page 
