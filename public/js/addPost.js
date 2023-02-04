@@ -16,7 +16,8 @@ const addPostHandler = async function (event) {
             }
         })
             .then(function () {
-                document.location.replace(`/`);
+                // document.location.replace(`/`);
+                document.location.replace('/dashboard');
             })
             .catch(err => console.log(err))
     }

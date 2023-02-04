@@ -7,7 +7,7 @@ router.post('/', withAuth, async (req, res) => {
     try {
         const data = await Post.create({
             ...req.body,
-            user_id: req.session.user_id,
+            user_id: req.session.userId,
         });
 
         res.status(200).json(data);
@@ -28,5 +28,7 @@ router.post('/', withAuth, async (req, res) => {
 //         res.status(400).json(err);
 //     }
 // })
+
+
 
 module.exports = router;

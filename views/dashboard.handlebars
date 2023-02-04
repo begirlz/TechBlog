@@ -1,1 +1,25 @@
-<div>Hello</div>
+<div class="d-flex justify-content-center">
+    <div class="col-lg-10">
+        <h3>Welcome, {{user.name}} !</h3>
+        {{#each posts }}
+        <div class="card bg-light mb-3">
+            <h2 class="btn-primary">
+                <a href="/posts/{{id}}">{{title}}</a>
+            </h2>
+            <div>
+                Posted on {{format_date createdAt}}
+            </div>
+            <div>
+                {{body}}
+            </div>
+        </div>
+        {{/each}}
+
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-info col-lg-3" href="/addPost" id="addPost">Add new post</a>
+        </div>
+
+    </div>
+</div>
+
+<script></script>

@@ -26,9 +26,11 @@ https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/cerulean/bootstrap.min.css
                             <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
+                    {{#if loggedIn}}
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard"><strong>Dashboard</strong></a>
                     </li>
+                    {{/if}}
                 </div>
                 {{#if loggedIn}}
                 <div class="d-flex me-sm-2">
