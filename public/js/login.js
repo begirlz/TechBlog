@@ -5,18 +5,19 @@ const login = async function (event) {
   const password = document.querySelector('#txt_passwordLogin').value.trim();
 
   if (email && password) {
-    fetch("/api/users/login", {
-      method: "post",
-      body: JSON.stringify({
-        username: email,
-        password: password
-      }),
-      headers: { "Content-Type": "application/json" }
-    })
-      .then(function () {
-        document.location.replace("/");
-      })
-      .catch(err => console.log(err));
+    const response = await fetch('/api/users/login', {
+      method: 'POST',
+      body: JSON.stringify({ 
+        email:email, 
+        password:password }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert(response.statusText);
+    }
   }
 }
 

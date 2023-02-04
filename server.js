@@ -21,12 +21,13 @@ const hbs = exphbs.create({ helpers });
 // set up Sessions with the sequelize store
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
   resave: false,
   saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
+  cookie: {},
+    
+  // store: new SequelizeStore({
+  //   db: sequelize
+  // })
 };
 
 // add express-session and store as Express.js middleware
