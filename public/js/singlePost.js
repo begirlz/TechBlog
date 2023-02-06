@@ -40,21 +40,6 @@ const delButtonHandler = async function (event) {
     }
   }
 
-  // if (event.target.hasAttribute('data-id')) {
-
-  //   fetch('api/posts/' + post_id, {
-  //     method: 'delete',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //     .then(function () {
-  //       console.log("deleted post");
-  //       document.location.replace("/dashboard");
-  //     })
-  //     .catch(err => console.log(err))
-  // }
-
 }
 
 document

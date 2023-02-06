@@ -1,19 +1,17 @@
 <div class="d-flex justify-content-center">
     <div class="col-lg-10">
         <div class="card bg-light mb-3">
-            {{!-- <p>{{post.id}}</p> --}}
             <div class="card-header bg-primary">
-                <span class="h3">{{post.title}}</span>
-                <span>
-                    <button class="btn-close float-end" data-id={{post.id}} id="btn_delete">
+                <span class="h3 text-dark">{{post.title}}</span>
+                <span class="float-end">
+                    <a href="/editPost/{{post.id}}" class="fa fa-edit"></a>
+                    <button class="btn-close" data-id={{post.id}} id="btn_delete">
                     </button>
                 </span>
             </div>
             <div class="card-body">
                 <p>{{post.body}}</p>
             </div>
-
-            {{!-- <p>Posted by: {{post.user.name}}</p> --}}
         </div>
         {{#each post.comments}}
         <div class="card border-info mb-3">
@@ -22,7 +20,6 @@
             <div class="card-body">
                 <p>{{body}}</p>
             </div>
-
         </div>
         {{/each}}
         <form class="frm_comment" data-id="{{post.id}}">

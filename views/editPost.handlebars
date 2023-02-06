@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center">
+    <form class="col-lg-6" id="frm_edit">
+        <div class="card-hearder">
+            <h3><strong>Edit post</strong></h3>
+        </div>      
+        <label class="form-label" for="txt_title">Title</label>
+        <input class="form-control" type="text" id="txt_title" value="{{post.title}}"/>
+        <label class="form-label" for="txt_body">Post description</label>
+        <textarea class="form-control mb-2" type="text" id="txt_body">{{post.body}}</textarea>
+        <div class="float-end">
+            <button class="btn btn-info" id="btn_edit" data-id={{post.id}} type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script src="/js/edit.js"></script>

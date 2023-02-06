@@ -23,6 +23,25 @@ router.get('/dashboard', async (req, res) => {
 
 });
 
+// render editPost page
+router.get("/editPost/:id", withAuth, (req, res) => {
+  Post.findByPk(req.params.id)
+    .then(data => {
+      if (data) {
+        const post = data.get({ plain: true });
+
+        res.render("editPost", {
+          post
+        });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
 // render addPost page
 router.get('/addPost', (req, res) => {
 
