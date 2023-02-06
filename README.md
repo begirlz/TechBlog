@@ -40,7 +40,7 @@ Start Server;
 `npm start server`    
 
 ## Documentation
-Deployed application can be found [here](https://intense-journey-34063.herokuapp.com/).
+Deployed application can be found [here](https://powerful-hollows-53265.herokuapp.com/).
 The following picture is the screenshot of the application: 
 
 ![screenshot](./img/demo.png) 
