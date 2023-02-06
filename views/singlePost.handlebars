@@ -2,14 +2,22 @@
     <div class="col-lg-10">
         <div class="card bg-light mb-3">
             {{!-- <p>{{post.id}}</p> --}}
-            <h2 class="btn-primary">{{post.title}}</h2>
+            <div class="card-header btn-primary">
+                <h3>{{post.title}}
+                    <button class="btn-close float-end" data-id={{post.id}} id="btn_delete">
+                    </button>
+                </h3>
+            </div>
             <p>{{post.body}}</p>
             <p>Posted by: {{post.user.name}}</p>
         </div>
         {{#each post.comments}}
         <div class="card border-info mb-3">
+            <div class="card-header "><strong>Comment by: {{user.name}} on {{format_date createdAt}}</strong></div>
 
-            <p>{{body}} {{Comment.user.name}}</p>
+            <div calss="card-body">
+                <p>{{body}}</p>
+            </div>
 
         </div>
         {{/each}}

@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Post, Comment, User } = require("../models");
+const withAuth = require("../utils/auth");
 
 // render dashboard page
 router.get('/dashboard', async (req, res) => {
@@ -73,7 +74,7 @@ router.get("/", async (req, res) => {
 });
 
 // get single post by id
-router.get("/posts/:id", (req, res) => {
+router.get("/posts/:id", withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
     include: [
       User,

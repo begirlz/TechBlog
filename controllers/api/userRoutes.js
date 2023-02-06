@@ -13,6 +13,7 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.userId = data.id;
       res.status(200).json(data);
     });
   } catch (err) {
@@ -50,16 +51,10 @@ router.post('/login', async (req, res) => {
       req.session.loggedIn = true;
 
       res.status(200).json({data, message: 'You are now logged in!'});
-      // res.json({ user: data, message: 'You are now logged in!' });
-      //insomnia: testing 
-      // res.json({ pwd:req.body.password,
-      //   userpwd:data.password,validation:validPassword,loggedIn:req.session.loggedIn, message: 'You are now logged in!' });
     });
 
-
-
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json({message: 'No email found'});
   }
 });
 

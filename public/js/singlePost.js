@@ -23,6 +23,44 @@ const commentFormHandler = async function (event) {
   }
 };
 
+const delButtonHandler = async function (event) {
+  event.preventDefault();
+
+  if (event.target.hasAttribute('data-id')) {
+    const post_id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`/api/posts/${post_id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to delete post');
+    }
+  }
+
+  // if (event.target.hasAttribute('data-id')) {
+
+  //   fetch('api/posts/' + post_id, {
+  //     method: 'delete',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  //     .then(function () {
+  //       console.log("deleted post");
+  //       document.location.replace("/dashboard");
+  //     })
+  //     .catch(err => console.log(err))
+  // }
+
+}
+
+document
+  .querySelector('#btn_delete')
+  .addEventListener('click', delButtonHandler);
+
 document
   .querySelector('.frm_comment')
   .addEventListener('submit', commentFormHandler);
