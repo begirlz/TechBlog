@@ -2,18 +2,14 @@
     <div class="col-lg-10">
         {{#each posts as |post|}}
         <div class="card bg-light mb-3">
-            <h2 class="btn-primary">
-                <a href="/posts/{{id}}">{{title}}</a>
-            </h2>
-            <div>
-                Posted by {{post.user.name}} on {{format_date createdAt}}
-            </div>
-            <div>
+            <div class="card-header bg-primary">
+                <span class="h3"><a href="/posts/{{id}}">{{title}}</a></span>
+                <span class="text-dark float-end"> Posted by {{post.user.name}} on {{format_date createdAt}}</span>
+            </div>    
+            <div class="card-body">
                 {{body}}
             </div>
         </div>
         {{/each}}
-
-
     </div>
 </div>

@@ -2,20 +2,24 @@
     <div class="col-lg-10">
         <div class="card bg-light mb-3">
             {{!-- <p>{{post.id}}</p> --}}
-            <div class="card-header btn-primary">
-                <h3>{{post.title}}
+            <div class="card-header bg-primary">
+                <span class="h3">{{post.title}}</span>
+                <span>
                     <button class="btn-close float-end" data-id={{post.id}} id="btn_delete">
                     </button>
-                </h3>
+                </span>
             </div>
-            <p>{{post.body}}</p>
-            <p>Posted by: {{post.user.name}}</p>
+            <div class="card-body">
+                <p>{{post.body}}</p>
+            </div>
+
+            {{!-- <p>Posted by: {{post.user.name}}</p> --}}
         </div>
         {{#each post.comments}}
         <div class="card border-info mb-3">
-            <div class="card-header "><strong>Comment by: {{user.name}} on {{format_date createdAt}}</strong></div>
+            <div class="card-header"><strong>Comment by: {{user.name}} on {{format_date createdAt}}</strong></div>
 
-            <div calss="card-body">
+            <div class="card-body">
                 <p>{{body}}</p>
             </div>
 
@@ -24,7 +28,7 @@
         <form class="frm_comment" data-id="{{post.id}}">
             <div class="from-group">
                 <label class="from-label" for="txt_comment">Leave a comment</label>
-                <textarea type="text" class="form-control" id="txt_comment"></textarea>
+                <textarea type="text" class="form-control mb-2" id="txt_comment"></textarea>
                 <button type="submit" class="btn float-end">Submit</button>
             </div>
         </form>
