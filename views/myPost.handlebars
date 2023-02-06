@@ -3,6 +3,11 @@
         <div class="card bg-light mb-3">
             <div class="card-header bg-primary">
                 <span class="h3 text-dark">{{post.title}}</span>
+                <span class="float-end">
+                    <a href="/editPost/{{post.id}}" class="fa fa-edit"></a>
+                    <button class="btn-close" data-id={{post.id}} id="btn_delete">
+                    </button>
+                </span>
             </div>
             <div class="card-body">
                 <p>{{post.body}}</p>

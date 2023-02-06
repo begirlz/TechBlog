@@ -93,7 +93,7 @@ router.get("/", async (req, res) => {
 });
 
 // get single post by id
-router.get("/posts/:id", withAuth, (req, res) => {
+router.get("/posts/:id", (req, res) => {
   Post.findByPk(req.params.id, {
     include: [
       User,
@@ -106,12 +106,41 @@ router.get("/posts/:id", withAuth, (req, res) => {
     .then((data) => {
       if (data) {
         const post = data.get({ plain: true });
-
-        res.render("singlePost", {
-          layout: "main",
+        
+          res.render("singlePost", {
           post,
           loggedIn: req.session.loggedIn
         });
+        
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
+// get my single post by id
+router.get("/posts/my/:id", (req, res) => {
+  Post.findByPk(req.params.id, {
+    include: [
+      User,
+      {
+        model: Comment,
+        include: [User],
+      },
+    ],
+  })
+    .then((data) => {
+      if (data) {
+        const post = data.get({ plain: true });
+        
+          res.render("myPost", {
+            post,
+            loggedIn: req.session.loggedIn
+          });
+        
       } else {
         res.status(404).end();
       }
